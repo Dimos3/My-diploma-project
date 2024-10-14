@@ -1,0 +1,140 @@
+body{
+    background-color: rgb(14, 216, 230);
+}
+header{
+    position: relative;
+}
+.block_bottom_header
+{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 15px;
+    justify-content: space-between;
+    background-color: white;
+}
+.inner{
+    width: var(--inner-width);
+    max-width: var(--inner-max-width);
+    margin: auto;
+    
+    justify-content: space-between;
+}
+.logo{
+    margin-right: 14px;
+    max-height: 100px;
+    max-width: 100px;
+}
+.logo img {
+    max-height: 80px;
+    max-width: 100px;
+}
+.slogan{
+    color: black;
+    max-width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.Rait{
+    display: flex;
+    margin-left: 30px;
+}
+.block_bottom_header nav ul li{
+    position: relative;
+    float: left;
+    border-right: 1px solid #adadad;
+    border-left: 1px solid #adadad;
+    
+}
+.block_bottom_header nav ul li a{
+    padding: 15px;
+    color: #000;
+    font-size: 25px;
+    font-weight: 700;
+    display: block;
+    border-radius: 1px;
+    border-color: #000;
+}
+.block_bottom_header nav ul li a:hover {
+    background: #e7e7e7;
+}
+.Fone{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.Form{
+    margin-top: 400px;
+    width: 95%;
+    height: 90vh;
+    background-color: white;
+}
+footer{
+    display: flex;
+    width: 100%;
+    float: left;
+    padding: 1%;
+    background: white;
+    margin-top: 10px;
+   
+}
+.Menu_img{
+    margin-right: 14px;
+    height: 300px;
+    width: 400px;
+}
+.block_menu{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    
+}
+.Menu_elim{
+    display: grid; 
+    text-align: center;
+}
+.Void{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 25%;
+}
+.Name{
+    font-size: 40px;
+    color: #000;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+.Del{
+    text-align: center;
+    color: #000;
+    background-color: yellow;
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+}
+.U{
+    display:flex;
+    justify-content: center;
+    font-size: 30px;
+}
+.Help{
+    float: right;
+    color: #000000;
+}
+.ZUC{
+    text-align: center;
+    color: #000;
+    background-color: yellow;
+    border-radius: 30px;
+    width: 200px;
+    height: 50px;
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-left: 20px;
+}

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<Head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset=utf8>
+        <link rel="stylesheet" href="{% static '/Artical/CSS/index.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/About_company.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/Reset.css' %}">
+		<title>О компании</title>
+</Head>
+<body style="background-image: url('{% static '/Artical/jpeg/665f2k.png' %}'); background-repeat: no-repeat; background-attachment: fixed; background-size:cover; background-position: center center;">
+	<header>
+		<div class="block_bottom_header">
+			<div class="Rait">
+				<a href="/" class="logo">
+					<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+				</a>
+				<h2 class="slogan">Интернет-магазин</h2>
+			</div>
+			<nav>
+				<ul id ="menu_list" style="overflow: visible;">
+				<li>
+					<a href="{% url 'About company' %}">О компании</a>
+				</li>
+				<li>
+					<a href="{% url 'List' %}">Каталог</a>
+				</li>
+				{% if user.is_authenticated %}
+				<li>
+					<a href="{% url 'Orders' %}">Заказы</a>
+				</li>
+				{% endif %}
+				<li>
+					<a href="{% url 'baskK' %}">Корзина</a>
+				</li>
+				<li>
+					{% if user.is_authenticated %}
+					<p><a href="{% url 'logout' %}">Выйти</a></p>
+					{% else %}
+					<a href="{% url 'login' %}">Войти</a>
+					{% endif %}
+				</li>
+				{% if user.is_authenticated %}
+				<li>
+					<p class="TextOut">Имя пользователя</p>
+					<p class="TextOutUser">{{ user.username }}</p>
+				</li>
+				{% endif %}
+				</li>
+				</ul>
+				</div>
+			<div>
+		</div>
+	</header>
+
+	<div class="Fone">
+		<div class="Form">
+			<div class="Heading">
+				<h1>О компании</h1>
+			</div>
+			<div class="Text">
+				<p>
+					Наша компания занимается продажей различных запчастей для техники.  
+				</p>
+				<p>Наша компания располагется по адресу: </p>
+				<p>Для связи с нами вы можете использовать наш e-mail:</p>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div>
+			<a href="/" class="logo">
+				<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+			</a>
+			<h4>"Название организации"</h4>
+			<div class="Help">
+				<a href="{% static 'Справочная система пользователя.pdf' %}">Помощь</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<Head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset=utf8>
+        <link rel="stylesheet" href="{% static '/Artical/CSS/index.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/Orders.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/Reset.css' %}">
+		<title>Выдача закзов</title>
+</Head>
+<body style="background-image: url('{% static '/Artical/jpeg/665f2k.png' %}'); background-repeat: no-repeat; background-attachment: fixed; background-size:cover; background-position: center center;">
+	<header>
+		<div class="block_bottom_header">
+			<div class="Rait">
+				<a href="/" class="logo">
+					<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+				</a>
+				<h2 class="slogan">Интернет-магазин автомобильных запчастей</h2>
+			</div>
+					<nav>
+					<ul id ="menu_list" style="overflow: visible;">
+					{% if user.is_staff %}
+					<li>
+						<a href="{% url 'issue' %}">Выдача заказов</a>
+					</li>
+					{% endif %}
+					<li>
+						<a href="{% url 'About company' %}">О компании</a>
+					</li>
+					<li>
+						<a href="{% url 'List' %}">Каталог</a>
+					</li>
+					{% if user.is_authenticated %}
+					<li>
+						<a href="{% url 'Orders' %}">Заказы</a>
+					</li>
+					{% endif %}
+					<li>
+						<a href="{% url 'baskK' %}">Корзина</a>
+					</li>
+					<li>
+						{% if user.is_authenticated %}
+						<p><a href="{% url 'logout' %}">Выйти</a></p>
+						{% else %}
+						<a href="{% url 'login' %}">Войти</a>
+						{% endif %}
+					</li>
+					{% if user.is_authenticated %}
+					<li>
+						<p class="TextOut">Имя пользователя</p>
+						<p class="TextOutUser">{{ user.username }}</p>
+					</li>
+					{% endif %}
+					</li>
+					</ul>
+				</div>
+			<div>
+		</div>
+	</header>
+
+	<div class="Fone">
+		<div class="Form">
+			<div class="block_menu">
+				{% if orders %}
+					<ul>
+					{% for order in orders %}
+						{% for P in prod %}
+							{% if P.id == order.Products_id%}
+							<div>
+								<h2>Название:{{P.Product_Name}}</h2>
+								<img src="{{P.Image.url}}" alt="" width=250px height="250">
+								<h2 class="Price"> Цена:{{P.Price}}</h2>
+							</div>
+							{% endif %}
+						{% endfor%}
+						{% if order.id == ldoua.id %}
+							<a href="{% url 'orddel' order.Order_number %}">
+								<div class="Del">
+									<h1>Заказ получен</h1>
+								</div>
+							</a>
+						{% endif %}
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>Закз не найден</p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div>
+			<a href="/" class="logo">
+				<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+			</a>
+			<h4>"Название организации"</h4>
+			<div class="Help">
+				<a href="{% static 'Справочная система пользователя.pdf' %}">Помощь</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.Heading{
+    font-size: 50px;
+    text-align: center;
+}
+
+.Text{
+    display: block;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+}
+

@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <Head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset=utf8>
+        <link rel="stylesheet" href="{% static '/Regis/CSS/Regcss.css' %}">
+        <link rel="stylesheet" href="{% static '/Artical/CSS/Reset.css' %}">
+		<title>Авторизация</title>
+</Head>
+    <body>
+        <header>
+            <div class="block_bottom_header">
+                <div class="Rait">
+                    <a href="/" class="logo">
+                        <img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+                    </a>
+                    <h2 class="slogan">Интернет-магазин</h2>
+                </div>
+                        <nav>
+                        <ul id ="menu_list" style="overflow: visible;">
+                        <li>
+                            <a href="{% url 'About company' %}">О компании</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'List' %}">Каталог</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'baskK' %}">Корзина</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Reg' %}">Войти</a>
+                        </li>
+                        </ul>
+                    </div>
+                <div>
+            </div>
+        </header>
+        
+        <div class="Font">
+            <div class="Form">
+                <form action="/auth/login/" class="f1" method="post">
+                    {{ form.as_p }}
+                </form>
+                <a href="{% url 'Cokci' %}">
+                    Зарегистрируйтесь <br> если ранее не делали этого
+                </a>
+            </div>
+        </div>
+
+    </body>
+    <footer>
+        <div>
+            <a href="/" class="logo">
+                <img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+            </a>
+            <h4>"Название организации"</h4>
+        </div>
+    </footer>
+</html>

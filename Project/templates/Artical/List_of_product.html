@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<Head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset=utf8>
+        <link rel="stylesheet" href="{% static '/Artical/CSS/index.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/Reset.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/List.css' %}">
+		<title>Каталог</title>
+		
+</Head>
+<body style="background-image: url('{% static '/Artical/jpeg/665f2k.png' %}'); background-repeat: no-repeat; background-attachment: fixed; background-size:cover; background-position: center center;">
+	<sc>
+	<header>
+		<div class="block_bottom_header">
+			<div class="Rait">
+				<a href="/" class="logo">
+					<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+				</a>
+				<h2 class="slogan">Интернет-магазин</h2>
+			</div>
+			<nav>
+				<ul id ="menu_list" style="overflow: visible;">
+				<li>
+					<a href="{% url 'About company' %}">О компании</a>
+				</li>
+				<li>
+					<a href="{% url 'List' %}">Каталог</a>
+				</li>
+				{% if user.is_authenticated %}
+					<li>
+						<a href="{% url 'Orders' %}">Заказы</a>
+					</li>
+				{% endif %}
+				<li>
+					<a href="{% url 'baskK' %}">Корзина</a>
+				</li>
+				<li>
+					{% if user.is_authenticated %}
+					<p><a href="{% url 'logout' %}">Выйти</a></p>
+					{% else %}
+					<a href="{% url 'login' %}">Войти</a>
+					{% endif %}
+				</li>
+				{% if user.is_authenticated %}
+				<li>
+					<p class="TextOut">Имя пользователя</p>
+					<p class="TextOutUser">{{ user.username }}</p>
+				</li>
+				{% endif %}
+				</li>
+				</ul>
+				</div>
+			<div>
+		</div>
+	</header>
+	<div class="Fone">
+		<div class="Form">
+			{% if user.is_authenticated %} <!-- Проверка авторизации пользователья-->
+			{% endif %}
+			{% for el in news %}
+			<div class="Out">
+				<div class="Name">
+					<h1 >Название: </h1>
+					<p>{{el.Product_Name}}</p>
+				</div>
+				<div class="IDA">
+					<div>
+						<img src="{{el.Image.url}}" alt="" width=250px >
+					</div>
+					<div>
+						<section class="section">
+							<div class="section_content">
+								<div class="section_contentr">
+									<div class="section_body">
+										<h2>Описание:</h2>
+										<p>{{el.Description}}</p>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="EL">
+					{% if el.Quantity > 0 %}
+					<h3>В наличи:</h3>
+					<p>{{el.Quantity|floatformat:"0"}}</p>
+					{% else%}
+					<h1>Товара нет в наличи</h1>
+					{% endif %}
+				</div>
+				<div class="EL">
+					<h3>Цена:</h3>
+					<p>{{el.Price}}</p>
+					<p>руб.</p>
+				</div>
+				
+				{% if user.is_authenticated %}
+				{% if el.Quantity > 0 %}
+				<div class="Buy_button">
+					<a href="{% url 'ADD' el.pk %}">Добавить в корзину</a>
+				</div>
+				{% endif %}
+				{% endif %}
+			
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<footer>
+		<div>
+			<a href="/" class="logo">
+				<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+			</a>
+			<h4>"Название организации"</h4>
+			<div class="Help">
+				<a href="{% static 'Справочная система пользователя.pdf' %}">Помощь</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

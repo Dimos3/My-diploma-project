@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<Head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset=utf8>
+        <link rel="stylesheet" href="{% static '/Artical/CSS/index.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/Reset.css' %}">
+		<title>Выдача закзов</title>
+</Head>
+<body style="background-image: url('{% static '/Artical/jpeg/665f2k.png' %}'); background-repeat: no-repeat; background-attachment: fixed; background-size:cover; background-position: center center;">
+	<header>
+		<div class="block_bottom_header">
+			<div class="Rait">
+				<a href="/" class="logo">
+					<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+				</a>
+				<h2 class="slogan">Интернет-магазин</h2>
+			</div>
+					<nav>
+					<ul id ="menu_list" style="overflow: visible;">
+					{% if user.is_staff %}
+					<li>
+						<a href="{% url 'About company' %}">Выдача заказов</a>
+					</li>
+					{% endif %}
+					<li>
+						<a href="{% url 'About company' %}">О компании</a>
+					</li>
+					<li>
+						<a href="{% url 'List' %}">Каталог</a>
+					</li>
+					{% if user.is_authenticated %}
+					<li>
+						<a href="{% url 'Orders' %}">Заказы</a>
+					</li>
+					{% endif %}
+					<li>
+						<a href="{% url 'baskK' %}">Корзина</a>
+					</li>
+					<li>
+						{% if user.is_authenticated %}
+						<p><a href="{% url 'logout' %}">Выйти</a></p>
+						{% else %}
+						<a href="{% url 'login' %}">Войти</a>
+						{% endif %}
+					</li>
+					{% if user.is_authenticated %}
+					<li>
+						<p class="TextOut">Имя пользователя</p>
+						<p class="TextOutUser">{{ user.username }}</p>
+					</li>
+					{% endif %}
+					</li>
+					</ul>
+				</div>
+			<div>
+		</div>
+	</header>
+
+	<div class="Fone">
+		<div class="Form">
+			<div class="block_menu">
+				<form action="{% url 'seaorders' %}" method="get">
+					{% csrf_token %}
+					<input type="text" name="orders_number" placeholder="Номер закза" style="background-color: rgb(255, 255, 255);
+					border: 4px solid rgb(26, 170, 196);
+					border-radius: 10px;
+					height: 35px;
+					width: 300px">
+					<button type="submit" style="background-color: #fbff2b !important;
+					border-radius: 30px;
+					height: 30px;
+					width: 120px;
+				   margin-bottom: 30px;
+				   font-size: 700;">Искать</button> 
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div>
+			<a href="/" class="logo">
+				<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+			</a>
+			<h4>"Название организации"</h4>
+			<div class="Help">
+				<a href="{% static 'Справочная система пользователя.pdf' %}">Помощь</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

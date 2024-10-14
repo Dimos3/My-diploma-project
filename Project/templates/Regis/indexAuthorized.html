@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<Head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset=utf8>
+        <link rel="stylesheet" href="{% static '/Artical/CSS/index.css' %}">
+		<link rel="stylesheet" href="{% static '/Artical/CSS/Reset.css' %}">
+		<title>Главная страница</title>
+</Head>
+<body>
+	<header>
+		<div class="block_bottom_header">
+			<div class="Rait">
+				<a href="/" class="logo">
+					<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+				</a>
+				<h2 class="slogan">Интернет-магазин</h2>
+			</div>
+					<nav>
+					<ul id ="menu_list" style="overflow: visible;">
+					<li>
+						<a href="{% url 'About company' %}">О компании</a>
+					</li>
+					<li>
+						<a href="{% url 'List' %}">Каталог</a>
+					</li>
+					<li>
+						<a href="{% url 'baskK' %}">Корзина</a>
+					</li>
+					<li>
+						{% for el in username %}
+						<h1> {{ el }} </h1>
+					</li>
+					</ul>
+				</div>
+			<div>
+		</div>
+	</header>
+
+	<div class="Fone">
+		<div class="Form">
+			<div class="block_menu">
+				<div style="display: grid; text-align: center;">
+					<a href="">
+						<picture>
+							<source media="max-width:1000px" srcset="">
+							<img src="{% static '/Artical/jpeg/Ремень ГРМ.jpg' %} " class="Menu_img" alt="">
+						</picture>
+					</a>
+					<a href="">Ремень ГРМ</a>
+				</div>
+				<div style="display: grid; text-align: center;">
+					<a href="">
+						<img src="{% static '/Artical/jpeg/Свеча зажигания.jpg' %}" class="Menu_img" alt="">
+					</a>
+					<a href="">Свеча зажигания</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div>
+			<a href="/" class="logo">
+				<img src="{% static '/Artical/jpeg/logo.jpg' %}" alt="">
+			</a>
+			<h4>"Название организации"</h4>
+		</div>
+	</footer>
+</body>
+</html>

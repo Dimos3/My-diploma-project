@@ -1,0 +1,113 @@
+body{
+    background-color: rgb(89, 172, 6);
+}
+.form2{
+    background: white;
+    text-align: right; /* Располжение текста */
+    height: 10vh;
+    position: absolute;
+    width: 10%;
+    right: 0;
+    border-radius: 5px;
+}
+.B2{
+    background: yellowgreen;
+    border-radius: 4px;
+}
+.LOS{
+    text-align:center;
+}
+.conntt{
+    
+	height: 30vh ; 
+	
+	grid-gap: 55px;
+	background: white;
+	border-radius: 10px;
+	margin-top: 100px ;
+    height: 90vh;
+    width: 95vh;
+    display: inline-block;
+    /*
+    display: flex;
+    background: white;
+	justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-gap: 10px;
+    height: 100px;
+    width: 100px;
+    margin: 10%;*/
+}
+.DIV{
+    height: 100vh;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    grid-gap:40px;
+    
+    
+}
+.VOUT{
+    border: 5px solid  chartreuse;
+    border-radius: 5px;
+    margin-top: 15px;
+    /*border-radius: 5px; 
+    margin-left: 20px;
+    margin-right: 40px;*/
+}
+tr,td{
+    padding: 10px;
+    margin: 20px;
+    /*background-color: aqua;*/
+    margin-right: 60px;    
+    border-collapse: collapse;
+    
+}
+table{
+    padding: 10px;
+    border: 1px solid black;
+    margin: 20px;
+    border-collapse: collapse;
+}
+table tbody tr:nth-child(odd){
+    background: #96e49a;
+}
+
+.T2{
+    background-color: darkgreen;
+}
+
+body header{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    display: flex;
+    background: darkgreen;
+    justify-content: space-around; /* определние пространство вокрук элементва */
+	align-items: center;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    float:left;
+}
+
+body header div{
+    background: green;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    transition: .5s;
+}
+body header div a{color: #ffffff;}
+body header div:hover{
+    background: rgb(49, 231, 79);
+    padding: 15px;
+    transform: scale(1,1);
+}
+
+body header .Logo{
+    font-size: 30px;
+    
+}
